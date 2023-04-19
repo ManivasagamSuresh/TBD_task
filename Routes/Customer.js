@@ -8,7 +8,7 @@ const { mongoConnect, closeConnection } = require("../Mongo");
 const { verifyToken } = require("../verifyToken");
 const jwt_token = process.env.JWT_TOKEN;
 
-
+// SignUp
 router.post("/signup" ,async(req,res)=>{
    try {
     const db =await mongoConnect();
@@ -22,6 +22,7 @@ router.post("/signup" ,async(req,res)=>{
    }  
 })
 
+// login
 router.post("/signin",async(req,res)=>{
     try {
         const db = await mongoConnect();
@@ -43,6 +44,8 @@ router.post("/signin",async(req,res)=>{
     }
 })
 
+
+// Get customer detail
 router.get("/getCustomer/:id",verifyToken,async(req,res)=>{
     try {
         const db  = await mongoConnect();

@@ -4,6 +4,8 @@ const { mongoConnect, closeConnection } = require("../Mongo");
 const router = express.Router();
 const mongodb = require("mongodb");
 
+
+// add a product
 router.post("/addproduct",verifyToken,async(req,res)=>{
     try {
         const db = await mongoConnect();
@@ -16,6 +18,7 @@ router.post("/addproduct",verifyToken,async(req,res)=>{
     }
 })
 
+// update a product
 router.put("/editproduct/:ProductId",verifyToken,async(req,res)=>{
     try {
         const db = await mongoConnect();
@@ -28,7 +31,7 @@ router.put("/editproduct/:ProductId",verifyToken,async(req,res)=>{
     }
 })
 
-
+// get products
 router.get("/getproducts",verifyToken,async(req,res)=>{
     try {
         const db = await mongoConnect();
@@ -40,6 +43,8 @@ router.get("/getproducts",verifyToken,async(req,res)=>{
         console.log(error);
     }
 })
+
+// get details of particular product
 router.get("/productDetail/:productId",verifyToken,async(req,res)=>{
     try {
         const db = await mongoConnect();
@@ -52,6 +57,8 @@ router.get("/productDetail/:productId",verifyToken,async(req,res)=>{
     }
 })
 
+
+// delete product
 router.delete("/deleteproduct/:productId",verifyToken,async(req,res)=>{
     try {
         const db = await mongoConnect();
