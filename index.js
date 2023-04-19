@@ -17,7 +17,6 @@ app.use(cors({
 
 app.use("/api",Customer);
 app.use("/api",tbdOrder);
-// app.use("/api",labOrder);
 app.use("/api",Products);
 
 
